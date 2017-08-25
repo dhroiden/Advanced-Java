@@ -2,8 +2,8 @@ package trng.imcs.service;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -23,7 +23,9 @@ public class BonusServiceImplementation implements BonusService {
 	public List<Bonus> loadFromFile() {
 		logger.info("Loading bonus data from resource");
 		List<Bonus> bonusList = new ArrayList<>();
-		try (BufferedReader br = new BufferedReader(new FileReader("..//EmployeeLibrary//Resource//bonusData.txt"))) {
+		try (InputStreamReader inputStreamReader = 
+				new InputStreamReader(ClassLoader.getSystemResourceAsStream("bonusData.txt"));
+				BufferedReader br = new BufferedReader(inputStreamReader);){
 			String line;
 			String[] d = null;
 			while ((line = br.readLine()) != null) {

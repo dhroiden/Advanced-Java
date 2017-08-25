@@ -2,8 +2,8 @@ package trng.imcs.service;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -15,7 +15,6 @@ import org.apache.log4j.Logger;
 
 import trng.imcs.model.*;
 import trng.imcs.dao.*;
-import trng.imcs.service.*;
 
 public class EmployeeServiceImplementation implements EmployeeService {
 	final Logger logger = Logger.getLogger(EmployeeServiceImplementation.class);
@@ -24,10 +23,11 @@ public class EmployeeServiceImplementation implements EmployeeService {
 	public List<Employee> loadFromFile() {
 		logger.info("Loading file from resource");
 		List<Employee> empList = new ArrayList<>();
-		try (BufferedReader br = new BufferedReader(new FileReader("..//EmployeeLibrary//Resource//employeeData.txt"))) {
+		try (InputStreamReader inputStreamReader = 
+				new InputStreamReader(ClassLoader.getSystemResourceAsStream("employeeData.txt"));
+				BufferedReader br = new BufferedReader(inputStreamReader);) {
 			String line;
 			String[] d = null;
-			int num = 0;
 			while ((line = br.readLine()) != null) {
 				d = line.split(",");
 				String jDate = d[2];
