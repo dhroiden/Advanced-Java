@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Sign Up</title>
+		
+		<!-- Validate signup form script -->
+		<script src="signUpValidation.js"></script>
+		
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		
+		<!-- jQuery library -->
+		<script
+			src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<form>
+			<table>
+				<tr>
+					<th><label><b><font color="red">*</font> indicates required field.</b></label></th>
+				</tr>
+				<tr>
+					<td><label><b>User Name:<font color="red">*</font></b></label></td>
+					<td><input type="text" name="userName" id="userName" required></td>
+				</tr>
+				<tr>
+					<td><label><b>Password:<font color="red">*</font></b></label></td>
+					<td><input type="password" name="userPasw" id="userPasw" required></td>
+				</tr>
+				<tr>
+					<td><label><b>Confirm Password:<font color="red">*</font></b></label></td>
+					<td><input type="password" name="userConfPasw" id="userConfPasw" required></td>
+				</tr>
+				<tr>
+					<td><label><b>First Name:<font color="red">*</font></b></label></td>
+					<td><input type="text" name="userFirstName" id="userFirstName" required></td>
+				</tr>
+				<tr>
+					<td><label><b>Last Name:<font color="red">*</font></b></label></td>
+					<td><input type="text" name="userLastName" id="userLastName" required></td>
+				</tr>
+				<tr>
+					<td><label><b>Full Name:<font color="red">*</font></b></label></td>
+					<td><input type="text" name="userFullName" id="userFullName" required disabled="disabled"></td>
+				</tr>
+				<tr>
+					<td><label><b>Email Address:</b></label></td>
+					<td><input type="email" name="userEmail" id="userEmail"></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><button type="submit" onclick="check()">Register</button>
+					<button type="button" onclick="window.location.href='index.html'">Cancel</button>
+					<button type="reset">Reset Form</button></td>
+				</tr>
+			</table>
+		</form>
+	</body>
+	
+	<!-- Latest compiled JavaScript -->
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+</html>
