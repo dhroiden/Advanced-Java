@@ -24,7 +24,7 @@ public class BonusServiceImplementation implements BonusService {
 		logger.info("Loading bonus data from resource");
 		List<Bonus> bonusList = new ArrayList<>();
 		try (InputStreamReader inputStreamReader = 
-				new InputStreamReader(ClassLoader.getSystemResourceAsStream("bonusData.txt"));
+				new InputStreamReader(getClass().getClassLoader().getResourceAsStream("bonusData.txt"));
 				BufferedReader br = new BufferedReader(inputStreamReader);){
 			String line;
 			String[] d = null;

@@ -34,10 +34,8 @@ public final class JdbcConnectionFactory {
 		Properties credentialsProps = null;
 		boolean error = true;
 		try {
-			// File file = new File("credentials.properties");
 			credentialsProps = new Properties();
-			// InputStream inStream = new FileInputStream(file);
-			InputStream stream = ClassLoader.getSystemResourceAsStream("credentials.properties");
+			InputStream stream = getClass().getClassLoader().getResourceAsStream("credentials.properties");
 
 			if (stream == null) {
 				System.out.println("Error in loading the credentials for JDBC, "

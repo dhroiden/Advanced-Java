@@ -24,7 +24,7 @@ public class EmployeeServiceImplementation implements EmployeeService {
 		logger.info("Loading file from resource");
 		List<Employee> empList = new ArrayList<>();
 		try (InputStreamReader inputStreamReader = 
-				new InputStreamReader(ClassLoader.getSystemResourceAsStream("employeeData.txt"));
+				new InputStreamReader(getClass().getClassLoader().getResourceAsStream("employeeData.txt"));
 				BufferedReader br = new BufferedReader(inputStreamReader);) {
 			String line;
 			String[] d = null;

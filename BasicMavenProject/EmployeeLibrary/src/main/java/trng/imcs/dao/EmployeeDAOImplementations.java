@@ -173,7 +173,7 @@ public class EmployeeDAOImplementations implements EmployeeDAO {
 			st.setInt(1, depNo);
 			rs = st.executeQuery();
 			if (rs.next()) {
-
+				b.setDepNo(depNo);
 				b.setAmount(rs.getFloat(1));
 				b.setRemainingAmount(rs.getFloat(2));
 			}
@@ -201,6 +201,47 @@ public class EmployeeDAOImplementations implements EmployeeDAO {
 		}
 
 		return true;
+	}
+
+	@Override
+	public Employee getEmployeeById(int employeeId) throws SQLException {
+		Employee employee = null;
+		ResultSet rs = null;
+		String sql = "select *  from employee where empNo=?";
+		try (Connection con = JdbcConnectionFactory.getConnection();PreparedStatement st = con.prepareStatement(sql)) {
+			st.setInt(1, employeeId);
+			rs = st.executeQuery();
+			while (rs.next()) {
+				employee = new Employee(rs.getInt(1), rs.getInt(2), rs.getDate(3), rs.getDate(4), rs.getFloat(5), rs.getInt(6));
+			}
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+		return employee;
+	}
+
+	@Override
+	public List<Employee> getEmployeeByDepId(int depId) throws SQLException {
+		List<Employee> empList = new ArrayList<Employee>();
+		ResultSet rs = null;
+		String sql = "select *  from employee where depNo=?";
+		try (Connection con = JdbcConnectionFactory.getConnection();PreparedStatement st = con.prepareStatement(sql)) {
+			st.setInt(1, depId);
+			rs = st.executeQuery();
+			while (rs.next()) {
+				Employee e = new Employee();
+				e.setEmpNo(rs.getInt(1));
+				e.setDepNo(rs.getInt(2));
+				e.setDoj(rs.getDate(3));
+				e.setDob(rs.getDate(4));
+				e.setSalary(rs.getFloat(5));
+				e.setSalaryGrade(rs.getInt(6));
+				empList.add(e);
+			}
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+		return empList;
 	}
 
 }

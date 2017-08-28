@@ -12,5 +12,7 @@ public interface EmployeeDAO {
 	List<Bonus> getAllEmployeeBonus() throws SQLException;
 	public Bonus getBonusInfo(int deptId) throws SQLException;
 	public boolean addEmployeeBonus(final EmployeeBonus e) throws SQLException;
+	public Employee getEmployeeById(int employeeId) throws SQLException;
+	public List<Employee> getEmployeeByDepId(int depId) throws SQLException;
 	public boolean updateBonusInfo(int deptId, Bonus bonus) throws SQLException;
 }
