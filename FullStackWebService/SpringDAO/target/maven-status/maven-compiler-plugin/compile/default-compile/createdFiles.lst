@@ -1,0 +1,8 @@
+trng\imcs\dao\DepartmentDaoImpl.class
+trng\imcs\jdbc\SpringJdbcConfig.class
+trng\imcs\dao\DepartmentDao.class
+trng\imcs\dao\EmployeeDao.class
+trng\imcs\model\Department.class
+trng\imcs\test\TestApp.class
+trng\imcs\dao\EmployeeDaoImpl.class
+trng\imcs\model\Employee.class
